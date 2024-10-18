@@ -1,6 +1,5 @@
 package org.ulpgc.is1.model;
 
-import java.io.SequenceInputStream;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,19 +1,19 @@
 package org.ulpgc.is1.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Renting {
     private static int NEXT_ID = 0;
     private final int id;
-    private Date from;
-    private Date to;
+    private LocalDate from;
+    private LocalDate to;
     private Customer customer;
     private List<Extra> extras;
     private Payment payment;
 
 
-    public Renting(int id, Date from, Date to, Customer customer, List<Extra> extras) {
+    public Renting(int id, LocalDate from, LocalDate to, Customer customer, List<Extra> extras) {
         this.id = NEXT_ID++;
         this.from = from;
         this.to = to;
@@ -25,19 +25,19 @@ public class Renting {
         return id;
     }
 
-    public Date getFrom() {
+    public LocalDate getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(LocalDate from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public LocalDate getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(LocalDate to) {
         this.to = to;
     }
 
@@ -57,7 +57,7 @@ public class Renting {
         this.extras = extras;
     }
 
-    public void setPayment(int price, Date date) {
+    public void setPayment(int price, LocalDate date) {
         this.payment = new Payment(date, price);
     }
 }
