@@ -31,5 +31,11 @@ public class RentingManager {
     public List<Translator> getTranslator() {
         return TranslatorList;
     }
+    public void addEquipment(String name) {
+        EquipmentList.add(new Equipment(name));
+    }
+    public List<Equipment> getEquipment() {
+        return EquipmentList;
+    }
 
 }
