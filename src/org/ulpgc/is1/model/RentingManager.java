@@ -16,5 +16,12 @@ public class RentingManager {
     public List<Customer> getCustomer() {
         return CustomerList;
     }
+    public void addRoom(String name, int capacity, int dayPrice, RoomType type) {
+        RoomList.add(new Room(name, capacity, dayPrice, type));
+    }
+    public List<Room> getRoom() {
+        return RoomList;
+    }
+
 
 }
