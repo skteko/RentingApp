@@ -1,11 +1,14 @@
 package org.ulpgc.is1.model;
 
+import java.io.SequenceInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RentingManager {
     private List<Customer> CustomerList;
     private List<Room> RoomList ;
+    private List<Translator> TranslatorList;
+    private List<Equipment> EquipmentList;
     public RentingManager() {
         CustomerList = new ArrayList<>();
         RoomList = new ArrayList<>() ;
@@ -22,6 +25,11 @@ public class RentingManager {
     public List<Room> getRoom() {
         return RoomList;
     }
-
+    public void addTranslator(String name, String surname) {
+        TranslatorList.add(new Translator(name, surname)) ;
+    }
+    public List<Translator> getTranslator() {
+        return TranslatorList;
+    }
 
 }

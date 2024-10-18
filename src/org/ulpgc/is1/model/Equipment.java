@@ -1,9 +1,9 @@
 package org.ulpgc.is1.model;
 
-public class Equiment extends Extra {
+public class Equipment extends Extra {
     private String name;
 
-    public Equiment(String name) {
+    public Equipment(String name) {
         this.name = name;
     }
 
