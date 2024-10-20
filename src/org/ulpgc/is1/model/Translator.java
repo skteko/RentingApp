@@ -4,21 +4,19 @@ public class Translator extends Extra {
     private String name;
     private String surname;
 
-    public Translator(String name, String surname) {
+    public Translator(String name, String surname, int dayPrice) {
         this.name = name;
         this.surname = surname;
+        this.dayPrice = dayPrice;
     }
 
+    @Override
     public String getName() {
-        return name;
+        return name + " " + surname;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
     }
 
     public void setSurname(String surname) {
