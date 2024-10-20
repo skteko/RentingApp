@@ -54,6 +54,34 @@ public class RentingManager {
         }
     }
 
+    public Equipment getEquipment(String name) {
+        for (Extra extra : extras) {
+            if (extra instanceof Equipment && extra.getName().equals(name)) {
+                return (Equipment) extra;
+            }
+        }
+        return null;
+    }
+
+
+    public void addTranslator(Translator translator) {
+        if (!extras.contains(translator)) {
+            extras.add(translator);
+        } else {
+            System.out.println("Translator already exists: " + translator.getName());
+        }
+    }
+
+
+    public Translator getTranslator(String name) {
+        for (Extra extra : extras) {
+            if (extra instanceof Translator && extra.getName().equals(name)) {
+                return (Translator) extra;
+            }
+        }
+        return null;
+    }
+
     public void rent(Customer customer, Room room, Extra extra, LocalDate from, LocalDate to) {
         Renting renting = new Renting(from, to, customer, room, extra);
         rentings.add(renting);
@@ -64,8 +92,17 @@ public class RentingManager {
     }
 
     public void showRentingsForRoom(Room room) {
+        System.out.println("***********************");
+        System.out.println("Alquileres " + room.getName());
+        System.out.println("***********************");
+        System.out.println("-Nombre: " + room.getName());
+        System.out.println("-Capacidad: " + room.getCapacity());
+        System.out.println("-Tipo: " + room.getType());
+        System.out.println("-Precio por dia: " + room.getDayPrice());
+        System.out.println("-----------------------");
         for (Renting renting : rentings) {
             if (renting.getRoom().equals(room)) {
+                System.out.println("Datos del alquiler: ");
                 System.out.println("Renting ID: " + renting.getId());
                 System.out.println("Customer: " + renting.getCustomer().getName() + " " + renting.getCustomer().getSurname());
                 System.out.println("From: " + renting.getFrom() + " To: " + renting.getTo());
@@ -74,7 +111,7 @@ public class RentingManager {
                 if (extra != null) {
                     System.out.println("Extra: " + extra.getName() + " (Price per day: " + extra.getDayPrice() + " EUR)");
                 }
-                System.out.println("----");
+                System.out.println("---------------------------");
             }
         }
     }
