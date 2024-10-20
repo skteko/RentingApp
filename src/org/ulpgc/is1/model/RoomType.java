@@ -1,5 +1,5 @@
 package org.ulpgc.is1.model;
 
 public enum RoomType {
-    Conference_Room, Meeting_Room, Showroom
+    CONFERENCE_ROOM, MEETING_ROOM, SHOWROOM;
 }

@@ -1,7 +1,7 @@
 package org.ulpgc.is1.model;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.time.temporal.ChronoUnit;
 
 public class Renting {
     private static int NEXT_ID = 0;
@@ -9,16 +9,16 @@ public class Renting {
     private LocalDate from;
     private LocalDate to;
     private Customer customer;
-    private List<Extra> extras;
-    private Payment payment;
+    private Room room;
+    private Extra extra;
 
-
-    public Renting(int id, LocalDate from, LocalDate to, Customer customer, List<Extra> extras) {
+    public Renting(LocalDate from, LocalDate to, Customer customer, Room room, Extra extra) {
         this.id = NEXT_ID++;
         this.from = from;
         this.to = to;
         this.customer = customer;
-        this.extras = extras;
+        this.room = room;
+        this.extra = extra;
     }
 
     public int getId() {
@@ -45,19 +45,18 @@ public class Renting {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public Room getRoom() {
+        return room;
     }
 
-    public List<Extra> getExtras() {
-        return extras;
+    public Extra getExtra() {
+        return extra;
     }
 
-    public void setExtras(List<Extra> extras) {
-        this.extras = extras;
-    }
-
-    public void setPayment(int price, LocalDate date) {
-        this.payment = new Payment(date, price);
+    public int price() {
+        int days = (int) ChronoUnit.DAYS.between(from, to);
+        int roomPrice = room.getDayPrice() * days;
+        int extraPrice = (extra != null) ? extra.getDayPrice() * days : 0;
+        return roomPrice + extraPrice;
     }
 }
