@@ -2,8 +2,7 @@ package org.ulpgc.is1.model;
 
 
 public abstract class Extra  {
-    private int dayPrice;
-    private String name;
+    protected int dayPrice;
 
     public int getDayPrice() {
         return dayPrice;
